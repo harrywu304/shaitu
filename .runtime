@@ -1,0 +1,26 @@
+#runtime state for EasyPhoto
+#Mon Apr 06 20:56:14 CST 2009
+text_watermark_alpha=0
+text_watermakr_color=java.awt.Color[r\=255,g\=255,b\=255]
+text_watermark=
+append_focal=true
+append_iso=false
+apply_resize=false
+apply_text_watermark=false
+last_check_update=20090406
+exif_style=double
+input_files=D\:\\Harry\\workspace\\EasyPhoto\\src\\resources\\icon\\d.jpg
+resize_index=1
+text_watermakr_font=Arial 0 16
+override=false
+append_date=false
+apply_exif=true
+quality=100
+apply_round=true
+text_watermark_style=tiny
+append_apt=true
+append_exp=true
+output_folder=D\:\\myData
+exif_font=Palatino Linotype 3 16
+resize=0
+sign=
