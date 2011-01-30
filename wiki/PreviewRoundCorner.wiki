@@ -1,0 +1,10 @@
+#summary 照片圆角效果
+#labels Phase-Requirements
+
+= 示例1 =
+
+[http://shaitu.googlecode.com/svn/wiki/img/pre_round_corner_1.jpg?300]
+
+= 示例2 =
+
+[http://shaitu.googlecode.com/svn/wiki/img/pre_round_corner_2.jpg?300]
