@@ -1,4 +1,4 @@
-#summary 照片圆角效果
+#summary *照片圆角效果*
 #labels Phase-Requirements
 
 = 示例1 =
