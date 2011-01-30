@@ -84,4 +84,8 @@ public class AppConstants {
 	 * App update declaration
 	 */
 	public static final String UPDATE_CHECK_URL = "http://shaitu.googlecode.com/svn/wiki/dist/update.txt";
+    /**
+     * executor of app, for windows is EasyPhoto.bat, for linux is EasyPhoto.sh
+     */
+	public static final String RUNNER ="EasyPhoto";
 }

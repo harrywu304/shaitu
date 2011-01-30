@@ -202,9 +202,9 @@ public class AppUtil {
      */
     public static void restartApp(){
     	try {
-    		ProcessBuilder pb=new ProcessBuilder("EasyPhoto");
-    		pb.directory(new File(System.getProperty("user.dir")));
-			pb.start();
+    		//ProcessBuilder pb=new ProcessBuilder(AppConstants.RUNNER);
+    		//pb.directory(new File(System.getProperty("user.dir")));
+			//pb.start();
 			System.exit(0);
 		} catch (Exception e) {
 			e.printStackTrace();
