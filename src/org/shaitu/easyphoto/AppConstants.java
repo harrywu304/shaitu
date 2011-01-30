@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
+ * Project: ThirdEye
+ * Author: Harry Wu <harrywu304@gmail.com>
+ * Created On: Oct 16, 2008 9:05:44 AM
+ *
+*/ 
 package org.shaitu.easyphoto;
 
 /**
@@ -9,7 +16,7 @@ public class AppConstants {
 	/**
 	 * current app version
 	 */
-	public static final String CURRENT_INTERNAL_VERSION = "20090425.001";
+	public static final String CURRENT_INTERNAL_VERSION = "20110130.001";
 	/**
 	 * double style of exif
 	 */
@@ -76,5 +83,5 @@ public class AppConstants {
 	/**
 	 * App update declaration
 	 */
-	public static final String UPDATE_CHECK_URL = "http://dl.getdropbox.com/u/191419/easyphoto/easyphotoUpdate.txt";
+	public static final String UPDATE_CHECK_URL = "http://shaitu.googlecode.com/svn/wiki/dist/update.txt";
 }

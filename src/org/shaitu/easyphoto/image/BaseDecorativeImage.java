@@ -1,5 +1,5 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
  * Project: ThirdEye
  * Author: Harry Wu <harrywu304@gmail.com>
  * Created On: Oct 13, 2008 4:00:38 PM
@@ -7,20 +7,10 @@
 */ 
 package org.shaitu.easyphoto.image;
 
-import java.awt.image.IndexColorModel;
-import java.io.File;
 import java.io.IOException;
-import java.util.Iterator;
 
-import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
-import javax.imageio.ImageTypeSpecifier;
-import javax.imageio.ImageWriteParam;
-import javax.imageio.ImageWriter;
-import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
-import javax.imageio.stream.ImageOutputStream;
 
-import org.shaitu.easyphoto.util.FileUtil;
 import org.shaitu.easyphoto.util.ImageUtil;
 import org.shaitu.easyphoto.vo.ImageActionVO;
 

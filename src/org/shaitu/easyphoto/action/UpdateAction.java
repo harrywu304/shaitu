@@ -1,5 +1,5 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
  * Project: EasyPhoto
  * Author: Harry Wu <harrywu304@gmail.com>
  * Created On: Oct 14, 2008 11:44:03 AM
@@ -48,10 +48,6 @@ public class UpdateAction {
      */
     private String jarFileURL;
     /**
-     * install bin file url
-     */
-    private String installFileURL;
-    /**
      * publish info url
      */
     private String publishURL;
@@ -91,7 +87,7 @@ public class UpdateAction {
             URL checkUpdateURL = new URL(AppConstants.UPDATE_CHECK_URL);
             URLConnection conn = checkUpdateURL.openConnection();
             //set connect timeout to 10 sec
-            conn.setConnectTimeout(10000);
+            conn.setConnectTimeout(5000);
             conn.setReadTimeout(5000);
             prop.load(conn.getInputStream());
             if(prop.isEmpty()){
@@ -103,7 +99,6 @@ public class UpdateAction {
             latestInternalVersion = prop.getProperty("inter_version_no");
             autoUpdateInternalVersion = prop.getProperty("autoupdate_inter_version");
             jarFileURL = prop.getProperty("jar_file");
-            installFileURL = prop.getProperty("install_file");
             publishURL = prop.getProperty("publish_url"); 
             checkDone = true;
         } catch (Exception e) {
@@ -191,14 +186,6 @@ public class UpdateAction {
 
     public void setJarFileURL(String jarFileURL) {
         this.jarFileURL = jarFileURL;
-    }
-
-    public String getInstallFileURL() {
-        return installFileURL;
-    }
-
-    public void setInstallFileURL(String installFileURL) {
-        this.installFileURL = installFileURL;
     }
 
     public String getPublishURL() {

@@ -1,8 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+/**
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
+ * Project: ThirdEye
+ * Author: Harry Wu <harrywu304@gmail.com>
+ * Created On: Oct 16, 2008 9:05:44 AM
+ *
+*/ 
 package org.shaitu.easyphoto.vo;
 
 /**

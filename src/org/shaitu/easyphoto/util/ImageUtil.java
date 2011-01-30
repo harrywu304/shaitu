@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
+ * Project: EasyPhoto
+ * Author: Harry Wu <harrywu304@gmail.com>
+ * Created On: Jun 28, 2008 5:12:21 PM
+ *
+ */
 package org.shaitu.easyphoto.util;
 
 import java.awt.image.BufferedImage;

@@ -1,5 +1,5 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
  * Project: ThirdEye
  * Author: Harry Wu <harrywu304@gmail.com>
  * Created On: Oct 13, 2008 4:00:38 PM

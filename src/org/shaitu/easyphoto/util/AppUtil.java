@@ -1,5 +1,5 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
  * Project: EasyPhoto
  * Author: Harry Wu <harrywu304@gmail.com>
  * Created On: Jan 10, 2009 6:15:21 PM
