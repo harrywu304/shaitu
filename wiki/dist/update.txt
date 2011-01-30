@@ -1,6 +1,6 @@
 #EasyPhoto update publish info
 latest_version=2.0.1
-inter_version_no=20110130.001
-autoupdate_inter_version=20110130.001
+inter_version_no=20110130.002
+autoupdate_inter_version=20110130.002
 jar_file=http://shaitu.googlecode.com/svn/wiki/dist/EasyPhoto.jar
 publish_url=http://code.google.com/p/shaitu/update.txt
