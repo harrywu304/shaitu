@@ -1,3 +1,10 @@
+/**
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
+ * Project: ThirdEye
+ * Author: Harry Wu <harrywu304@gmail.com>
+ * Created On: Oct 13, 2008 4:57:38 PM
+ *
+*/ 
 package org.shaitu.easyphoto.ui;
 
 import java.io.File;

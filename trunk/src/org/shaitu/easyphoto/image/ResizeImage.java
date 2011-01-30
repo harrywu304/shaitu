@@ -1,5 +1,5 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
  * Project: ThirdEye
  * Author: Harry Wu <harrywu304@gmail.com>
  * Created On: Oct 16, 2008 11:27:09 AM
@@ -8,7 +8,6 @@
 package org.shaitu.easyphoto.image;
 
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;

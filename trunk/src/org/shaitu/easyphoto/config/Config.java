@@ -1,5 +1,5 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
  * Config.java
  * Project: wRounder
  * Author: Harry Wu <harrywu304@gmail.com>

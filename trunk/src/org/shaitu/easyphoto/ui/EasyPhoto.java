@@ -1,8 +1,8 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
- * Project: EasyPhoto
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
+ * Project: ThirdEye
  * Author: Harry Wu <harrywu304@gmail.com>
- * Created On: Oct 14, 2008 11:44:03 AM
+ * Created On: Oct 13, 2008 4:57:38 PM
  *
 */ 
 package org.shaitu.easyphoto.ui;
@@ -25,11 +25,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -45,8 +43,6 @@ import org.shaitu.easyphoto.vo.AppOptionsVO;
 import org.shaitu.easyphoto.vo.ImageActionParamsVO;
 import org.shaitu.easyphoto.vo.ImageActionVO;
 import org.shaitu.easyphoto.vo.OptionBean;
-
-
 
 import say.swing.JFontChooser;
 

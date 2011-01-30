@@ -1,16 +1,15 @@
 /**
- * COPYRIGHT. www.dxtop.net 2008. ALL RIGHTS RESERVED.
- * Project: EasyPhotoSimple
+ * COPYRIGHT. Harry Wu 2010. ALL RIGHTS RESERVED.
+ * Project: ThirdEye
  * Author: Harry Wu <harrywu304@gmail.com>
- * Created On: Oct 14, 2008 11:44:03 AM
+ * Created On: Oct 13, 2008 4:57:38 PM
  *
- */
+*/ 
 package org.shaitu.easyphoto.ui;
 
 import java.awt.Desktop;
 import java.net.URI;
 import java.text.MessageFormat;
-import java.util.Vector;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
