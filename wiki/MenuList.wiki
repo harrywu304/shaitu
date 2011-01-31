@@ -1,14 +1,9 @@
-#menu list of wiki
+  * 效果预览
+    * [PreviewWatermark 水印效果]
+    * [PreviewEXIF EXIF外框效果]
+    * [PreviewRoundCorner 圆角效果]
 
-= 效果预览 =
-
-  * [PreviewWatermark 水印效果]
-  * [PreviewEXIF EXIF外框效果]
-  * [PreviewRoundCorner	圆角效果]
-
-
-= 配置功能 =
-
+  * 配置功能
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
