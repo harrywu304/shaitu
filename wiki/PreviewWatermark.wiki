@@ -1,5 +1,5 @@
 #labels Phase-Requirements
-#sidebar TableOfContents
+#sidebar MenuList
 *自定义水印*
 
 = 示例1 =
