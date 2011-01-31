@@ -1,6 +1,0 @@
-  * 效果预览
-    * [PreviewWatermark 水印效果]
-    * [PreviewEXIF EXIF外框效果]
-    * [PreviewRoundCorner 圆角效果]
-
-  * 配置功能
