@@ -1,3 +1,4 @@
+#sidebar TableOfContents
   * 效果预览
     * [PreviewWatermark 水印效果]
     * [PreviewEXIF EXIF外框效果]
