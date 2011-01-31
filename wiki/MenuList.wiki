@@ -4,6 +4,3 @@
     * [PreviewRoundCorner 圆角效果]
 
   * 配置功能
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
