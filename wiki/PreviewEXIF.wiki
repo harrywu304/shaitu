@@ -1,4 +1,4 @@
-#labels Phase-Requirements
+#labels Phase-Requirements,ScreenShot
 *照片EXIF外框*
 
 = 示例1 =
