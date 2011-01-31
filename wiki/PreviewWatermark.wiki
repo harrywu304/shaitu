@@ -1,4 +1,4 @@
-#labels Phase-Requirements,Featured
+#labels Phase-Requirements
 *自定义水印*
 
 = 示例1 =
