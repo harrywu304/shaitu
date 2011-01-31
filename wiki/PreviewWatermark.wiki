@@ -1,5 +1,4 @@
-#labels Phase-Requirements
-#sidebar MenuList
+#labels Phase-Requirements,Featured
 *自定义水印*
 
 = 示例1 =
