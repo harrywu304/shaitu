@@ -2,12 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1">
         <file>
-            <url>src/net/dxtop/easyphoto/image/BaseDecorativeImage.java</url>
-            <line>70</line>
-        </file>
-        <file>
             <url>src/net/dxtop/easyphoto/action/ImageAction.java</url>
             <line>113</line>
+        </file>
+        <file>
+            <url>src/net/dxtop/easyphoto/image/BaseDecorativeImage.java</url>
+            <line>70</line>
         </file>
     </editor-bookmarks>
 </project-private>
