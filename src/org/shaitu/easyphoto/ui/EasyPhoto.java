@@ -70,6 +70,14 @@ public class EasyPhoto extends javax.swing.JFrame {
      */
     public void initApp(){
         isInitialing = true;
+        //initial frame icon
+        javax.swing.ImageIcon titleIcon16 = new javax.swing.ImageIcon(EasyPhoto.class.getResource("/resources/icon/title_logo_16.png"));
+        javax.swing.ImageIcon titleIcon32 = new javax.swing.ImageIcon(EasyPhoto.class.getResource("/resources/icon/image_icon_32.png"));
+        icons.add(titleIcon16.getImage());
+        icons.add(titleIcon32.getImage());
+        this.setIconImages(icons);
+        fmPreview.setIconImage(titleIcon16.getImage());
+        fmOptions.setIconImage(titleIcon16.getImage());
         //reset app conf
         AppOptionsVO optionsVO = AppUtil.retrieveAppConf();
         cbTheme.setSelectedItem(new OptionBean("",optionsVO.getTheme()));
@@ -235,7 +243,6 @@ public class EasyPhoto extends javax.swing.JFrame {
         fcOutput.setDialogTitle(messageMapping.getString("dialog.title.output")); // NOI18N
 
         fmPreview.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        fmPreview.setIconImage(titleIcon.getImage());
         fmPreview.setName("previewFrame"); // NOI18N
         fmPreview.setResizable(false);
         fmPreview.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -258,7 +265,6 @@ public class EasyPhoto extends javax.swing.JFrame {
         fmPreview.getContentPane().add(lbPreviewBig);
 
         fmOptions.setTitle(messageMapping.getString("dialog.options.title")); // NOI18N
-        fmOptions.setIconImage(titleIcon.getImage());
         fmOptions.setResizable(false);
 
         lbExifStyle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -844,7 +850,6 @@ public class EasyPhoto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(messageMapping.getString("main.title")); // NOI18N
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setIconImage(titleIcon.getImage());
         setName("frame"); // NOI18N
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -969,17 +974,17 @@ public class EasyPhoto extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(panControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(btPreviewBig, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(btExport, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(btCancle, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(btOptions, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(btAbout, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(btExport, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(btCancle, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(btOptions, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(btAbout, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panControlLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(panControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(cbApplyTextWm, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(cbApplyRound, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                            .addComponent(cbApplyExif, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))))
+                            .addComponent(cbApplyTextWm, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(cbApplyRound, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                            .addComponent(cbApplyExif, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         panControlLayout.setVerticalGroup(
@@ -1003,7 +1008,7 @@ public class EasyPhoto extends javax.swing.JFrame {
                 .addComponent(btOptions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btAbout)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panMainLayout = new javax.swing.GroupLayout(panMain);
@@ -1593,10 +1598,6 @@ public class EasyPhoto extends javax.swing.JFrame {
      */
     public static ResourceBundle messageMapping = ResourceBundle.getBundle("resources/i18n/MessageMapping");
     /**
-     * Title icon for all EasyPhoto window
-     */
-    public static javax.swing.ImageIcon titleIcon = new javax.swing.ImageIcon(EasyPhoto.class.getResource("/resources/icon/title_logo_16.png"));
-    /**
      * image list for preview conventions
      */
     private List<File> previewImageList = new ArrayList();
@@ -1644,4 +1645,8 @@ public class EasyPhoto extends javax.swing.JFrame {
      * index for color egg
      */
     private int eggIndex;
+    /**
+     * icons for frames
+     */
+    private static List<Image> icons = new ArrayList<Image>();
 }
