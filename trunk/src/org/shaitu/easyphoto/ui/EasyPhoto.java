@@ -223,6 +223,8 @@ public class EasyPhoto extends javax.swing.JFrame {
         lbAboutLogo = new javax.swing.JLabel();
         epAboutInfo = new javax.swing.JEditorPane();
         panMain = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        lbImportImages = new javax.swing.JLabel();
         lbPreviewSmall = new javax.swing.JLabel();
         panImageNavigate = new javax.swing.JPanel();
         lbNext = new javax.swing.JButton();
@@ -861,12 +863,18 @@ public class EasyPhoto extends javax.swing.JFrame {
         panMain.setBackground(new java.awt.Color(255, 255, 255));
         panMain.setVerifyInputWhenFocusTarget(false);
 
+        lbImportImages.setText(messageMapping.getString("EasyPhoto.lbImportImages.text")); // NOI18N
+        lbImportImages.setBounds(220, 160, 100, 50);
+        jLayeredPane1.add(lbImportImages, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         lbPreviewSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbPreviewSmall.setText(messageMapping.getString("EasyPhoto.lbDndImage")); // NOI18N
         lbPreviewSmall.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         lbPreviewSmall.setDoubleBuffered(true);
         lbPreviewSmall.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lbPreviewSmall.setTransferHandler(new DndTransferHandler(this));
+        lbPreviewSmall.setBounds(44, 25, 450, 340);
+        jLayeredPane1.add(lbPreviewSmall, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lbNext.setFont(new java.awt.Font("Wingdings 3", 0, 12));
         lbNext.setText(messageMapping.getString("EasyPhoto.lbNext.text")); // NOI18N
@@ -895,7 +903,7 @@ public class EasyPhoto extends javax.swing.JFrame {
             .addGroup(panImageNavigateLayout.createSequentialGroup()
                 .addComponent(lbPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lbPreviewInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+                .addComponent(lbPreviewInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(lbNext, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1018,10 +1026,10 @@ public class EasyPhoto extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panControl, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panImageNavigate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbPreviewSmall, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE))
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panMainLayout.setVerticalGroup(
@@ -1031,8 +1039,8 @@ public class EasyPhoto extends javax.swing.JFrame {
                 .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panControl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panMainLayout.createSequentialGroup()
-                        .addComponent(lbPreviewSmall, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panImageNavigate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -1525,6 +1533,7 @@ public class EasyPhoto extends javax.swing.JFrame {
     private javax.swing.JFileChooser fcOutput;
     private javax.swing.JFrame fmOptions;
     private javax.swing.JFrame fmPreview;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lbAboutLogo;
     private javax.swing.JLabel lbAutoOpen;
@@ -1536,6 +1545,7 @@ public class EasyPhoto extends javax.swing.JFrame {
     private javax.swing.JLabel lbExifStyleDouble;
     private javax.swing.JLabel lbExifStyleRound;
     private javax.swing.JLabel lbExifStyleSingle;
+    private javax.swing.JLabel lbImportImages;
     private javax.swing.JLabel lbLanguage;
     private javax.swing.JButton lbNext;
     private javax.swing.JLabel lbOnTop;
