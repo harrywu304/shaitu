@@ -1,13 +1,11 @@
-#summary One-sentence summary of this page.
+#labels Phase-Requirements
+*主题风格预览*
 
-= Introduction =
+= 商务风格 =
+[http://shaitu.googlecode.com/svn/wiki/img/multi_themes_1.png]
 
-Add your content here.
+= 圆角风格 =
+[http://shaitu.googlecode.com/svn/wiki/img/multi_themes_2.png]
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= 石墨风格 =
+[http://shaitu.googlecode.com/svn/wiki/img/multi_themes_3.png]
