@@ -218,6 +218,11 @@ public class EasyPhoto extends javax.swing.JFrame {
         cbLanguage = new javax.swing.JComboBox();
         btUpdatePreview = new javax.swing.JButton();
         btConfirm = new javax.swing.JButton();
+        fcInput = new javax.swing.JFileChooser();
+        fcInput.setFileView(new ImageFileView());
+        fcInput.setAccessory(new ImagePreview(fcInput));
+        fcInput.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fcInput.setMultiSelectionEnabled(true);
         dgAbout = new javax.swing.JDialog();
         panAbout = new javax.swing.JPanel();
         lbAboutLogo = new javax.swing.JLabel();
@@ -864,6 +869,11 @@ public class EasyPhoto extends javax.swing.JFrame {
         panMain.setVerifyInputWhenFocusTarget(false);
 
         lbImportImages.setText(messageMapping.getString("EasyPhoto.lbImportImages.text")); // NOI18N
+        lbImportImages.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbImportImagesMouseClicked(evt);
+            }
+        });
         lbImportImages.setBounds(220, 160, 100, 50);
         jLayeredPane1.add(lbImportImages, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -1316,6 +1326,16 @@ public class EasyPhoto extends javax.swing.JFrame {
         fmOptions.setVisible(false);
     }//GEN-LAST:event_btConfirmActionPerformed
 
+    private void lbImportImagesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImportImagesMouseClicked
+        int rtValue = fcInput.showOpenDialog(this);
+        if (rtValue == javax.swing.JFileChooser.APPROVE_OPTION) {
+        	File[] images = fcInput.getSelectedFiles();
+        	for(File image:images){
+        		System.err.println("======"+image.getName());
+        	}
+        }
+    }//GEN-LAST:event_lbImportImagesMouseClicked
+
     /**
      * check if ready to proceed images
      */
@@ -1530,6 +1550,7 @@ public class EasyPhoto extends javax.swing.JFrame {
     private javax.swing.JComboBox cbTheme;
     private javax.swing.JDialog dgAbout;
     private javax.swing.JEditorPane epAboutInfo;
+    private javax.swing.JFileChooser fcInput;
     private javax.swing.JFileChooser fcOutput;
     private javax.swing.JFrame fmOptions;
     private javax.swing.JFrame fmPreview;

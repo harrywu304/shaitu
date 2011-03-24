@@ -966,6 +966,11 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JFileChooser" name="fcInput">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="fcInput.setFileView(new ImageFileView());&#xd;&#xa;fcInput.setAccessory(new ImagePreview(fcInput));&#xd;&#xa;fcInput.setFileSelectionMode(JFileChooser.FILES_ONLY);&#xd;&#xa;fcInput.setMultiSelectionEnabled(true);"/>
+      </AuxValues>
+    </Component>
     <Container class="javax.swing.JDialog" name="dgAbout">
       <Properties>
         <Property name="title" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
@@ -1155,6 +1160,9 @@
                   <ResourceString bundle="resources/i18n/MessageMapping.properties" key="EasyPhoto.lbImportImages.text" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbImportImagesMouseClicked"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
                   <JLayeredPaneConstraints x="220" y="160" width="100" height="50" layer="0" position="-1"/>
