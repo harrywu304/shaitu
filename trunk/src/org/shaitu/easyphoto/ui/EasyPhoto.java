@@ -246,6 +246,7 @@ public class EasyPhoto extends javax.swing.JFrame {
         cbApplyRound = new javax.swing.JCheckBox();
         cbApplyTextWm = new javax.swing.JCheckBox();
         jSeparator1 = new javax.swing.JSeparator();
+        btClear = new javax.swing.JButton();
 
         fcOutput.setDialogTitle(messageMapping.getString("dialog.title.output")); // NOI18N
 
@@ -874,7 +875,7 @@ public class EasyPhoto extends javax.swing.JFrame {
                 lbImportImagesMouseClicked(evt);
             }
         });
-        lbImportImages.setBounds(220, 160, 100, 50);
+        lbImportImages.setBounds(240, 260, 100, 50);
         jLayeredPane1.add(lbImportImages, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lbPreviewSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -883,7 +884,7 @@ public class EasyPhoto extends javax.swing.JFrame {
         lbPreviewSmall.setDoubleBuffered(true);
         lbPreviewSmall.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lbPreviewSmall.setTransferHandler(new DndTransferHandler(this));
-        lbPreviewSmall.setBounds(44, 25, 450, 340);
+        lbPreviewSmall.setBounds(4, 5, 600, 410);
         jLayeredPane1.add(lbPreviewSmall, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lbNext.setFont(new java.awt.Font("Wingdings 3", 0, 12));
@@ -982,6 +983,13 @@ public class EasyPhoto extends javax.swing.JFrame {
             }
         });
 
+        btClear.setText(messageMapping.getString("EasyPhoto.btClear.text")); // NOI18N
+        btClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panControlLayout = new javax.swing.GroupLayout(panControl);
         panControl.setLayout(panControlLayout);
         panControlLayout.setHorizontalGroup(
@@ -1002,7 +1010,10 @@ public class EasyPhoto extends javax.swing.JFrame {
                         .addGroup(panControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(cbApplyTextWm, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                             .addComponent(cbApplyRound, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(cbApplyExif, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))))
+                            .addComponent(cbApplyExif, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
+                    .addGroup(panControlLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btClear, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panControlLayout.setVerticalGroup(
@@ -1022,11 +1033,13 @@ public class EasyPhoto extends javax.swing.JFrame {
                 .addComponent(btExport)
                 .addGap(9, 9, 9)
                 .addComponent(btCancle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btClear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btOptions)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btAbout)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panMainLayout = new javax.swing.GroupLayout(panMain);
@@ -1330,11 +1343,17 @@ public class EasyPhoto extends javax.swing.JFrame {
         int rtValue = fcInput.showOpenDialog(this);
         if (rtValue == javax.swing.JFileChooser.APPROVE_OPTION) {
         	File[] images = fcInput.getSelectedFiles();
-        	for(File image:images){
-        		System.err.println("======"+image.getName());
-        	}
+        	setInputFiles(images);
         }
     }//GEN-LAST:event_lbImportImagesMouseClicked
+
+    private void btClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClearActionPerformed
+        previewImageList.clear();
+        lbPreviewSmall.setText(messageMapping.getString("EasyPhoto.lbDndImage"));
+        lbPreviewSmall.setIcon(null);
+        lbImportImages.setVisible(true);
+        lbPreviewInfo.setText("");
+    }//GEN-LAST:event_btClearActionPerformed
 
     /**
      * check if ready to proceed images
@@ -1442,6 +1461,8 @@ public class EasyPhoto extends javax.swing.JFrame {
      */
     public void setInputFiles(File[] inputFiles){
         this.inputFiles = inputFiles;
+        //hide import label
+        lbImportImages.setVisible(false);
         //update preview image list content when input file or folder changed
         previewImageList.clear();
         ImageUtil.findImagesRecusive(previewImageList, inputFiles);
@@ -1523,6 +1544,7 @@ public class EasyPhoto extends javax.swing.JFrame {
     private javax.swing.JButton btAbout;
     private javax.swing.JButton btCancle;
     private javax.swing.JButton btCheckUpdate;
+    private javax.swing.JButton btClear;
     private javax.swing.JButton btConfirm;
     private javax.swing.JButton btExifFont;
     private javax.swing.JButton btExport;
