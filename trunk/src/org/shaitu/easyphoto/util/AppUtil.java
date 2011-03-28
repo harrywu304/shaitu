@@ -13,6 +13,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.shaitu.easyphoto.AppConstants;
 import org.shaitu.easyphoto.config.Config;
@@ -27,6 +28,11 @@ import org.shaitu.easyphoto.vo.ImageActionParamsVO;
  * @author whx
  */
 public class AppUtil {
+	
+    /**
+     * MessageMapping for i18n
+     */
+    private static ResourceBundle messageMapping = ResourceBundle.getBundle("resources/i18n/MessageMapping");
 
     /**
      * remember operation params in last image proceed action
@@ -209,5 +215,9 @@ public class AppUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    }
+    
+    public static String getResourceString(String key){
+    	return messageMapping.getString(key);
     }
 }

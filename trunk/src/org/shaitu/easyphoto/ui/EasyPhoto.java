@@ -129,9 +129,9 @@ public class EasyPhoto extends javax.swing.JFrame {
             }
             sdWmTextOpaque.setValue(paramsVO.getWatermarkTextAlpha());
         }
-        fcInput.setCurrentDirectory(paramsVO.getInputFiles()[0]);
-        //init preview image list
-        //setInputFiles(new File[]{new File("sample")});
+        if(paramsVO.getInputFiles() != null && paramsVO.getInputFiles().length > 0){
+            fcInput.setCurrentDirectory(paramsVO.getInputFiles()[0]);
+        }
         //auto check update
         if(AppUtil.isUpdateCheckNeed()){
             doCheckUpdateAction(true);
@@ -999,21 +999,21 @@ public class EasyPhoto extends javax.swing.JFrame {
                     .addGroup(panControlLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(btPreviewBig, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(btExport, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(btCancle, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(btOptions, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(btAbout, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
+                            .addComponent(btPreviewBig, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(btExport, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(btCancle, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(btOptions, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(btAbout, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panControlLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(panControlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(cbApplyTextWm, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(cbApplyRound, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(cbApplyExif, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
+                            .addComponent(cbApplyTextWm, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(cbApplyRound, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(cbApplyExif, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
                     .addGroup(panControlLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btClear, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
+                        .addComponent(btClear, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panControlLayout.setVerticalGroup(
@@ -1048,7 +1048,7 @@ public class EasyPhoto extends javax.swing.JFrame {
             panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panControl, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panImageNavigate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1550,18 +1550,18 @@ public class EasyPhoto extends javax.swing.JFrame {
         int result = checkFontSetting(exifFont,tfExifSign.getText());
         if(result == 0){
         	exifFont = new Font("新宋体",exifFont.getStyle(),exifFont.getSize());
-        	JOptionPane.showMessageDialog(this, "wrong exif font, auto corrected", "Warnning", JOptionPane.INFORMATION_MESSAGE);
+        	//JOptionPane.showMessageDialog(fmOptions, "wrong exif font, auto corrected", "", JOptionPane.INFORMATION_MESSAGE);
         } else if(result == -1){
-        	JOptionPane.showMessageDialog(this, "wrong exif font, can't be correct", "Warnning", JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(fmOptions, messageMapping.getString("EasyPhoto.warning.invalidExifFont"), "", JOptionPane.WARNING_MESSAGE);
         }
         
         //check watermark font and watermark
         result = checkFontSetting(wmTextFont,tfWmText.getText());
         if(result == 0){
         	wmTextFont = new Font("新宋体",wmTextFont.getStyle(),wmTextFont.getSize());
-        	JOptionPane.showMessageDialog(this, "wrong exif font, auto corrected", "Warnning", JOptionPane.INFORMATION_MESSAGE);
+        	//JOptionPane.showMessageDialog(fmOptions, "wrong exif font, auto corrected", "", JOptionPane.INFORMATION_MESSAGE);
         } else if(result == -1){
-        	JOptionPane.showMessageDialog(this, "wrong exif font, can't be correct", "Warnning", JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(fmOptions, messageMapping.getString("EasyPhoto.warning.invalidWmTextFont"), "", JOptionPane.WARNING_MESSAGE);
         }
     }
 
