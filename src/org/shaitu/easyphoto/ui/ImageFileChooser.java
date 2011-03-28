@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileView;
+import org.shaitu.easyphoto.util.AppUtil;
 
 import org.shaitu.easyphoto.util.FileUtil;
 import org.shaitu.easyphoto.util.ImageUtil;
@@ -165,7 +166,7 @@ public class ImageFileChooser extends JFileChooser {
 		}
 
 		public String getDescription() {
-			return "Support Images";
+			return AppUtil.getResourceString("EasyPhoto.fcImport.supportType");
 		}
 	}
 
