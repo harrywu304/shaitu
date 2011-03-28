@@ -9,7 +9,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="fcOutput.setFileView(new ImageFileView());&#xd;&#xa;fcOutput.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);&#xd;&#xa;fcOutput.setMultiSelectionEnabled(false);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="fcOutput.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);&#xd;&#xa;fcOutput.setMultiSelectionEnabled(false);"/>
         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="EasyPhoto_fcInput"/>
       </AuxValues>
     </Component>
@@ -198,7 +198,7 @@
                               <Component id="tfExifSign" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lbSign" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -444,7 +444,7 @@
                               <Component id="lbWmTextOpaque" min="-2" max="-2" attributes="0"/>
                               <Component id="sdWmTextOpaque" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="79" max="32767" attributes="0"/>
+                          <EmptySpace pref="78" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -581,7 +581,7 @@
                               <Component id="sdCornerSize" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="lbCornerSize" alignment="2" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="188" max="32767" attributes="0"/>
+                          <EmptySpace pref="186" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -620,9 +620,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbQuality" alignment="1" pref="138" max="32767" attributes="1"/>
-                              <Component id="lbResize" alignment="1" pref="138" max="32767" attributes="1"/>
-                              <Component id="lbOutputFolder" alignment="1" pref="138" max="32767" attributes="0"/>
+                              <Component id="lbQuality" alignment="1" pref="132" max="32767" attributes="1"/>
+                              <Component id="lbResize" alignment="1" pref="132" max="32767" attributes="1"/>
+                              <Component id="lbOutputFolder" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -651,14 +651,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
-                              <Component id="lbQuality" alignment="2" pref="24" max="32767" attributes="0"/>
+                              <Component id="lbQuality" alignment="2" pref="23" max="32767" attributes="0"/>
                               <Component id="sdQuality" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="lbPercent" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="tfQuality" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
-                              <Component id="lbResize" alignment="2" pref="47" max="32767" attributes="0"/>
+                              <Component id="lbResize" alignment="2" pref="46" max="32767" attributes="0"/>
                               <Component id="sdSize" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="tfSize" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="lbPixel" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -967,8 +967,13 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JFileChooser" name="fcInput">
+      <Properties>
+        <Property name="dialogTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="resources/i18n/MessageMapping.properties" key="EasyPhoto.fcInput.title" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="fcInput.setFileView(new ImageFileView());&#xd;&#xa;fcInput.setAccessory(new ImagePreview(fcInput));&#xd;&#xa;fcInput.setFileSelectionMode(JFileChooser.FILES_ONLY);&#xd;&#xa;fcInput.setMultiSelectionEnabled(true);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="fcInput = new ImageFileChooser();"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JDialog" name="dgAbout">
@@ -1126,7 +1131,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="panImageNavigate" max="32767" attributes="1"/>
-                      <Component id="jLayeredPane1" pref="611" max="32767" attributes="0"/>
+                      <Component id="lypanImage" pref="611" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1139,7 +1144,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="panControl" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLayeredPane1" pref="420" max="32767" attributes="0"/>
+                          <Component id="lypanImage" pref="420" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="panImageNavigate" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1150,14 +1155,20 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
+        <Container class="javax.swing.JLayeredPane" name="lypanImage">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout"/>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lbImportImages">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/resources/icon/folder_open_add.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                   <ResourceString bundle="resources/i18n/MessageMapping.properties" key="EasyPhoto.lbImportImages.text" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -1165,7 +1176,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JLayeredPaneSupportLayout$JLayeredPaneConstraintsDescription">
-                  <JLayeredPaneConstraints x="240" y="260" width="100" height="50" layer="0" position="-1"/>
+                  <JLayeredPaneConstraints x="230" y="240" width="150" height="30" layer="0" position="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

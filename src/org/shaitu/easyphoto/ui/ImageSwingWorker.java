@@ -64,7 +64,7 @@ public class ImageSwingWorker extends SwingWorker {
 	@Override
 	protected Object doInBackground() throws Exception {
 		try {
-                    autoOpenOutput = main.getAppOptionsVO().isAutoOpenOutput();
+            autoOpenOutput = main.getAppOptionsVO().isAutoOpenOutput();
 			// generate ImageProceedVO instance
 			ImageActionParamsVO vo = main.getImageActionParamsVO();
 	        outputFolder = vo.getOutputFolder().toURI();

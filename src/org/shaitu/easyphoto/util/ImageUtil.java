@@ -7,6 +7,7 @@
  */
 package org.shaitu.easyphoto.util;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.IndexColorModel;
@@ -190,5 +191,30 @@ public class ImageUtil {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    /**
+     * get image thumbnail
+     * @param imageFile
+     */
+    public static ImageIcon getImageThumbnail(File imageFile, int width, int height){
+    	ImageIcon thumbnail = null;
+		if (imageFile != null && imageFile.isFile()) {
+			ImageIcon tmpIcon = new ImageIcon(imageFile.getPath());
+			if (tmpIcon != null) {
+				if (tmpIcon.getIconWidth() > width) {
+					int targetHeight = width/tmpIcon.getIconWidth()*tmpIcon.getIconHeight();
+					if(targetHeight>height){
+						targetHeight = height;
+					} else {
+						targetHeight = -1;
+					}
+					thumbnail = new ImageIcon(tmpIcon.getImage().getScaledInstance(width, targetHeight,Image.SCALE_AREA_AVERAGING));
+				} else {
+					thumbnail = tmpIcon;
+				}
+			}
+		}
+    	return thumbnail;
     }
 }
