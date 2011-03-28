@@ -96,5 +96,13 @@ public class UIUtil {
         }
 		return result;
 	}
+	
+//	public static Font getRecommendedFont(Font font, String content){
+//		Font result = font;
+//    	if(font.canDisplayUpTo(content) == -1){
+//    		return font;
+//    	}
+//    	
+//	}
 
 }

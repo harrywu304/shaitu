@@ -55,4 +55,20 @@ public class StringUtil {
         }
         return str;
     }
+    
+    /**
+     * check if the string contains Chinese
+     * @param str
+     * @return
+     */
+	public static boolean isContainChinese(String str) {
+		char[] charArray = str.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			if ((charArray[i] >= 0x4e00) && (charArray[i] <= 0x9fbb)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
