@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
 import org.shaitu.easyphoto.action.ImageAction;
+import org.shaitu.easyphoto.util.AppUtil;
 import org.shaitu.easyphoto.vo.ImageActionParamsVO;
 
 
@@ -92,8 +93,7 @@ public class ImageSwingWorker extends SwingWorker {
 	@Override
 	protected void done() {
         // show result info
-        String resultInfo = EasyPhoto.messageMapping
-                .getString("dialog.successinfo");
+        String resultInfo = AppUtil.getResourceString("dialog.successinfo");
         resultInfo = MessageFormat.format(resultInfo, imageAction
                 .getImgCount(), imageAction.getImgDoneCount(), imageAction
                 .getImgCount() - imageAction.getImgDoneCount());
