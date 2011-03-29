@@ -867,6 +867,8 @@ public class EasyPhoto extends javax.swing.JFrame {
         panMain.setBackground(new java.awt.Color(255, 255, 255));
         panMain.setVerifyInputWhenFocusTarget(false);
 
+        lbImportImages.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
+        lbImportImages.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbImportImages.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icon/folder_open_add.png"))); // NOI18N
         lbImportImages.setText(messageMapping.getString("EasyPhoto.lbImportImages.text")); // NOI18N
         lbImportImages.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -875,11 +877,10 @@ public class EasyPhoto extends javax.swing.JFrame {
                 lbImportImagesMouseClicked(evt);
             }
         });
-        lbImportImages.setBounds(230, 240, 150, 30);
+        lbImportImages.setBounds(210, 170, 190, 50);
         lypanImage.add(lbImportImages, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lbPreviewSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbPreviewSmall.setText(messageMapping.getString("EasyPhoto.lbDndImage")); // NOI18N
         lbPreviewSmall.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         lbPreviewSmall.setDoubleBuffered(true);
         lbPreviewSmall.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -903,8 +904,9 @@ public class EasyPhoto extends javax.swing.JFrame {
             }
         });
 
-        lbPreviewInfo.setFont(new java.awt.Font("宋体", 1, 12));
+        lbPreviewInfo.setFont(new java.awt.Font("宋体", 1, 12)); // NOI18N
         lbPreviewInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbPreviewInfo.setText(messageMapping.getString("EasyPhoto.lbDndImage")); // NOI18N
         lbPreviewInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout panImageNavigateLayout = new javax.swing.GroupLayout(panImageNavigate);
@@ -1062,7 +1064,7 @@ public class EasyPhoto extends javax.swing.JFrame {
                 .addGroup(panMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panControl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panMainLayout.createSequentialGroup()
-                        .addComponent(lypanImage, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                        .addComponent(lypanImage, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panImageNavigate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -1353,10 +1355,9 @@ public class EasyPhoto extends javax.swing.JFrame {
 
     private void btClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btClearActionPerformed
         previewImageList.clear();
-        lbPreviewSmall.setText(messageMapping.getString("EasyPhoto.lbDndImage"));
         lbPreviewSmall.setIcon(null);
         lbImportImages.setVisible(true);
-        lbPreviewInfo.setText("");
+        lbPreviewInfo.setText(messageMapping.getString("EasyPhoto.lbDndImage"));
     }//GEN-LAST:event_btClearActionPerformed
 
     /**
