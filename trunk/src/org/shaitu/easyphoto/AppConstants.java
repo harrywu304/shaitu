@@ -16,7 +16,7 @@ public class AppConstants {
 	/**
 	 * current app version
 	 */
-	public static final String CURRENT_INTERNAL_VERSION = "20110130.001";
+	public static final String CURRENT_INTERNAL_VERSION = "20110329.001";
 	/**
 	 * double style of exif
 	 */
@@ -57,10 +57,7 @@ public class AppConstants {
      * text watermark style "cross"
      */
     public static String WATERMARK_STYLE_CROSS = "cross";
-	/**
-	 * preview size of small image
-	 */
-	public static final int PREVIEW_SIZE_SMALL = 500;
+
     /**
      * default corner size
      */
