@@ -1553,7 +1553,7 @@ public class EasyPhoto extends javax.swing.JFrame {
         	exifFont = new Font("新宋体",exifFont.getStyle(),exifFont.getSize());
         	//JOptionPane.showMessageDialog(fmOptions, "wrong exif font, auto corrected", "", JOptionPane.INFORMATION_MESSAGE);
         } else if(result == -1){
-        	JOptionPane.showMessageDialog(fmOptions, messageMapping.getString("EasyPhoto.warning.invalidExifFont"), "", JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(fmOptions, messageMapping.getString("EasyPhoto.warning.invalidExifFont"), "Warning", JOptionPane.WARNING_MESSAGE);
         }
         
         //check watermark font and watermark
@@ -1562,7 +1562,7 @@ public class EasyPhoto extends javax.swing.JFrame {
         	wmTextFont = new Font("新宋体",wmTextFont.getStyle(),wmTextFont.getSize());
         	//JOptionPane.showMessageDialog(fmOptions, "wrong exif font, auto corrected", "", JOptionPane.INFORMATION_MESSAGE);
         } else if(result == -1){
-        	JOptionPane.showMessageDialog(fmOptions, messageMapping.getString("EasyPhoto.warning.invalidWmTextFont"), "", JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(fmOptions, messageMapping.getString("EasyPhoto.warning.invalidWmTextFont"), "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 
