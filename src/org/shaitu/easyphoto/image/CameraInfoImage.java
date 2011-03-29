@@ -13,11 +13,11 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
+import java.io.File;
 
 import org.shaitu.easyphoto.AppConstants;
 import org.shaitu.easyphoto.util.StringUtil;
 import org.shaitu.easyphoto.vo.ImageActionVO;
-
 
 import com.drew.imaging.jpeg.JpegMetadataReader;
 import com.drew.metadata.Directory;
@@ -234,33 +234,45 @@ public class CameraInfoImage extends BaseDecorativeImage {
 			Directory exifDic = metadata.getDirectory(ExifDirectory.class);
 			//camera module
 			if(vo.getParams().isAppendCamera()){
-				appendInfo.append(StringUtil.getPrintString(
-						exifDic.getDescription(ExifDirectory.TAG_MODEL)));
+				String info = getExifInfo(exifDic,ExifDirectory.TAG_MODEL);
+				if(!StringUtil.isNullOrBlank(info)){
+					appendInfo.append(StringUtil.getPrintString(info));
+				}
 			}
 			//focal length
 			if(vo.getParams().isAppendFocal()){
-				appendInfo.append(StringUtil.getPrintString(
-						exifDic.getInt(ExifDirectory.TAG_FOCAL_LENGTH)+" mm"));
+				String info = getExifInfo(exifDic,ExifDirectory.TAG_FOCAL_LENGTH);
+				if(!StringUtil.isNullOrBlank(info)){
+					appendInfo.append(StringUtil.getPrintString(info)+" mm");
+				}
 			}
 			//aperture
 			if(vo.getParams().isAppendApt()){
-				appendInfo.append(StringUtil.getPrintString(
-						exifDic.getDescription(ExifDirectory.TAG_FNUMBER)));
+				String info = getExifInfo(exifDic,ExifDirectory.TAG_FNUMBER);
+				if(!StringUtil.isNullOrBlank(info)){
+					appendInfo.append(StringUtil.getPrintString(info));
+				}
 			}
 			//exposure time
 			if(vo.getParams().isAppendExp()){
-				appendInfo.append(StringUtil.getPrintString(
-						exifDic.getDescription(ExifDirectory.TAG_EXPOSURE_TIME)));
+				String info = getExifInfo(exifDic,ExifDirectory.TAG_EXPOSURE_TIME);
+				if(!StringUtil.isNullOrBlank(info)){
+					appendInfo.append(StringUtil.getPrintString(info));
+				}
 			}
 			//iso
 			if(vo.getParams().isAppendIso()){
-				appendInfo.append(StringUtil.getPrintString(
-						exifDic.getDescription(ExifDirectory.TAG_ISO_EQUIVALENT)));
+				String info = getExifInfo(exifDic,ExifDirectory.TAG_ISO_EQUIVALENT);
+				if(!StringUtil.isNullOrBlank(info)){
+					appendInfo.append(StringUtil.getPrintString(info));
+				}
 			}
 			//take photo time
 			if(vo.getParams().isAppendDate()){
-				appendInfo.append(StringUtil.getPrintString(
-						exifDic.getDescription(ExifDirectory.TAG_DATETIME)));
+				String info = getExifInfo(exifDic,ExifDirectory.TAG_DATETIME);
+				if(!StringUtil.isNullOrBlank(info)){
+					appendInfo.append(StringUtil.getPrintString(info));
+				}
 			}
 			//author sign
 			if(!StringUtil.isNullOrBlank(vo.getParams().getSign())){
@@ -270,6 +282,21 @@ public class CameraInfoImage extends BaseDecorativeImage {
 				appendInfo.deleteCharAt(appendInfo.length()-1);
 			}
 	        return appendInfo.toString();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return "";
+	}
+	
+	/**
+	 * get exif item description
+	 * @param exifDic
+	 * @param item
+	 * @return
+	 */
+	private String getExifInfo(Directory exifDic, int item){
+		try{
+			return exifDic.getDescription(item);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

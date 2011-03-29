@@ -801,6 +801,7 @@ public class EasyPhoto extends javax.swing.JFrame {
 
         lbAboutLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbAboutLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icon/big_logo_128.png"))); // NOI18N
+        lbAboutLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbAboutLogo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbAboutLogoMouseClicked(evt);
@@ -869,15 +870,21 @@ public class EasyPhoto extends javax.swing.JFrame {
 
         lbImportImages.setFont(new java.awt.Font("宋体", 1, 14)); // NOI18N
         lbImportImages.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbImportImages.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icon/folder_open_add.png"))); // NOI18N
+        lbImportImages.setIcon(iconLbImportNormal);
         lbImportImages.setText(messageMapping.getString("EasyPhoto.lbImportImages.text")); // NOI18N
         lbImportImages.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbImportImages.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbImportImagesMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbImportImagesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbImportImagesMouseExited(evt);
+            }
         });
-        lbImportImages.setBounds(210, 170, 190, 50);
+        lbImportImages.setBounds(210, 170, 210, 50);
         lypanImage.add(lbImportImages, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lbPreviewSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1360,6 +1367,14 @@ public class EasyPhoto extends javax.swing.JFrame {
         lbPreviewInfo.setText(messageMapping.getString("EasyPhoto.lbDndImage"));
     }//GEN-LAST:event_btClearActionPerformed
 
+    private void lbImportImagesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImportImagesMouseEntered
+        lbImportImages.setIcon(iconLbImportFocus);
+    }//GEN-LAST:event_lbImportImagesMouseEntered
+
+    private void lbImportImagesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImportImagesMouseExited
+        lbImportImages.setIcon(iconLbImportNormal);
+    }//GEN-LAST:event_lbImportImagesMouseExited
+
     /**
      * check if ready to proceed images
      */
@@ -1444,7 +1459,8 @@ public class EasyPhoto extends javax.swing.JFrame {
         vo.setInputImageFile(imageFile);
         if(isSmall){
             vo.getParams().setApplyResize(true);
-            vo.getParams().setResize(AppConstants.PREVIEW_SIZE_SMALL);
+            int previewSize = ImageUtil.getFixedPreviewSize(imageFile,lbPreviewSmall.getHeight(),vo.getParams().isApplyExif());
+            vo.getParams().setResize(previewSize);
         }
         //decorate image
         ImageAction.decorateImage(vo);
@@ -1749,4 +1765,12 @@ public class EasyPhoto extends javax.swing.JFrame {
      * icons for frames
      */
     private static List<Image> icons = new ArrayList<Image>();
+    /**
+     * image import normal icon
+     */
+    private javax.swing.ImageIcon iconLbImportNormal = new javax.swing.ImageIcon(getClass().getResource("/resources/icon/picture_add_32.png"));
+    /**
+     * image import focus icon
+     */
+    private javax.swing.ImageIcon iconLbImportFocus = new javax.swing.ImageIcon(getClass().getResource("/resources/icon/picture_add_36.png"));
 }

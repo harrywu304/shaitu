@@ -217,4 +217,54 @@ public class ImageUtil {
 		}
     	return thumbnail;
     }
+    
+    /**
+     * get image orientation type
+     * @param imageFile
+     * @return 0:Landscape, 1:Portrait
+     */
+    public static int getOrientation(File imageFile){
+    	int result = 0;
+    	ImageIcon image = new ImageIcon(imageFile.getPath());
+    	if (image.getIconWidth() > image.getIconHeight()) {
+    		result = 0;
+    	} else {
+    		result = 1;
+    	}
+    	image = null;
+    	return result;
+    }
+    
+    /**
+     * get fixing preview image rsize <br/>
+     * Exif not apply: calculate by formula: iHeight/iWidth*rsize < (lbHeight-10)
+     * Exif apply: calculate by formula: iHeight/iWidth*rsize < (lbHeight-80-10)
+     * @param imageFile
+     * @param lbWidth
+     * @param lbHeight
+     * @param applyExif
+     * @return
+     */
+    public static int getFixedPreviewSize(File imageFile, int lbHeight, boolean applyExif){
+    	int rsize = 0;
+    	ImageIcon image = new ImageIcon(imageFile.getPath());
+    	int iHeight = image.getIconHeight();
+    	int iWidth = image.getIconWidth();
+    	image = null;
+    	if(iHeight > iWidth){
+    		if(!applyExif){
+        		rsize = lbHeight-10;
+    		} else {
+    			rsize = lbHeight-90;
+    		}
+    	} else {
+    		if(!applyExif){
+    			rsize = (lbHeight-10)*iWidth/iHeight;
+    		} else {
+    			rsize = (lbHeight-90)*iWidth/iHeight;
+    		}
+    	}
+    	return rsize;
+    }
+    
 }
