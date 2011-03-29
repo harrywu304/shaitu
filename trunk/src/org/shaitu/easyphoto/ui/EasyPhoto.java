@@ -246,16 +246,21 @@ public class EasyPhoto extends javax.swing.JFrame {
 
         fcOutput.setDialogTitle(messageMapping.getString("dialog.title.output")); // NOI18N
 
-        fmPreview.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         fmPreview.setName("previewFrame"); // NOI18N
         fmPreview.setResizable(false);
+        fmPreview.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                fmPreviewHiddenHandler(evt);
+            }
+        });
         fmPreview.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         lbPreviewBig.setToolTipText(messageMapping.getString("tooltip.preview")); // NOI18N
+        lbPreviewBig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbPreviewBig.setDoubleBuffered(true);
         lbPreviewBig.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                previewHandler(evt);
+                lbPreviewBigMouseClickedHandler(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 previewMoursePressHandler(evt);
@@ -263,7 +268,7 @@ public class EasyPhoto extends javax.swing.JFrame {
         });
         lbPreviewBig.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                previewDragHandler(evt);
+                lbPreviewBigMouseDraggedHandler(evt);
             }
         });
         fmPreview.getContentPane().add(lbPreviewBig);
@@ -892,6 +897,11 @@ public class EasyPhoto extends javax.swing.JFrame {
         lbPreviewSmall.setDoubleBuffered(true);
         lbPreviewSmall.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lbPreviewSmall.setTransferHandler(new DndTransferHandler(this));
+        lbPreviewSmall.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbPreviewSmallMouseClicked(evt);
+            }
+        });
         lbPreviewSmall.setBounds(4, 5, 600, 410);
         lypanImage.add(lbPreviewSmall, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -911,7 +921,7 @@ public class EasyPhoto extends javax.swing.JFrame {
             }
         });
 
-        lbPreviewInfo.setFont(new java.awt.Font("宋体", 1, 12)); // NOI18N
+        lbPreviewInfo.setFont(new java.awt.Font("宋体", 1, 12));
         lbPreviewInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbPreviewInfo.setText(messageMapping.getString("EasyPhoto.lbDndImage")); // NOI18N
         lbPreviewInfo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1138,31 +1148,30 @@ public class EasyPhoto extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btExifFontActionPerformed
 
-    private void previewDragHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previewDragHandler
+    private void lbPreviewBigMouseDraggedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPreviewBigMouseDraggedHandler
         java.awt.Point ptMouseNew = evt.getPoint();
         java.awt.Point ptPreNow = fmPreview.getLocation();
         fmPreview.setLocation(ptPreNow.x+ptMouseNew.x-ptMouseOrigin.x,
                 ptPreNow.y+ptMouseNew.y-ptMouseOrigin.y);
-    }//GEN-LAST:event_previewDragHandler
+    }//GEN-LAST:event_lbPreviewBigMouseDraggedHandler
 
     private void previewMoursePressHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previewMoursePressHandler
     	ptMouseOrigin = evt.getPoint();
     }//GEN-LAST:event_previewMoursePressHandler
 
-    private void previewHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previewHandler
-        if(evt.getButton() == evt.BUTTON1){
+    private void lbPreviewBigMouseClickedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPreviewBigMouseClickedHandler
+        if(evt.getButton() == evt.BUTTON3 && evt.getClickCount() == 1){
+            //right click to get next image           
+            previewIndex++; 
+        } else if(evt.getButton() == evt.BUTTON1 && evt.getClickCount() == 1){
             //left click to get pre image
             previewIndex--;
             if(previewIndex < 0){
                previewIndex =  previewImageList.size()-1;
-            }
-        } else if(evt.getButton() == evt.BUTTON3){
-            //right click to get next image           
-            previewIndex++;
-        }  
-        showBigPreview();        
-        showSmallPreview();
-    }//GEN-LAST:event_previewHandler
+            }            
+        }
+        showBigPreview();
+    }//GEN-LAST:event_lbPreviewBigMouseClickedHandler
 
     private void cbThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbThemeActionPerformed
         //avoid action trigger if just for initial but user manual operation
@@ -1351,10 +1360,8 @@ public class EasyPhoto extends javax.swing.JFrame {
     }//GEN-LAST:event_btConfirmActionPerformed
 
     private void lbImportImagesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImportImagesMouseClicked
-        //fcInput.setCurrentDirectory(dir);
     	int rtValue = fcInput.showOpenDialog(this);
         if (rtValue == javax.swing.JFileChooser.APPROVE_OPTION) {
-        	System.err.println("getCurrentDirectory:"+fcInput.getCurrentDirectory());
         	File[] images = fcInput.getSelectedFiles();
         	setInputFiles(images);
         }
@@ -1374,6 +1381,16 @@ public class EasyPhoto extends javax.swing.JFrame {
     private void lbImportImagesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbImportImagesMouseExited
         lbImportImages.setIcon(iconLbImportNormal);
     }//GEN-LAST:event_lbImportImagesMouseExited
+
+    private void lbPreviewSmallMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPreviewSmallMouseClicked
+        if(evt.getButton()== evt.BUTTON1 && evt.getClickCount() == 2){
+            showBigPreview();
+        }
+    }//GEN-LAST:event_lbPreviewSmallMouseClicked
+
+    private void fmPreviewHiddenHandler(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_fmPreviewHiddenHandler
+        showSmallPreview();
+    }//GEN-LAST:event_fmPreviewHiddenHandler
 
     /**
      * check if ready to proceed images
