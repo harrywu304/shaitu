@@ -19,10 +19,12 @@
     </Component>
     <Container class="javax.swing.JFrame" name="fmPreview">
       <Properties>
-        <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="name" type="java.lang.String" value="previewFrame" noResource="true"/>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="componentHidden" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="fmPreviewHiddenHandler"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new EscapeFrame();"/>
       </AuxValues>
@@ -37,12 +39,15 @@
             <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
               <ResourceString bundle="resources/i18n/MessageMapping.properties" key="tooltip.preview" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
             <Property name="doubleBuffered" type="boolean" value="true"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="previewHandler"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbPreviewBigMouseClickedHandler"/>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="previewMoursePressHandler"/>
-            <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="previewDragHandler"/>
+            <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="lbPreviewBigMouseDraggedHandler"/>
           </Events>
         </Component>
       </SubComponents>
@@ -94,7 +99,7 @@
             <Container class="javax.swing.JPanel" name="panExif">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Exif">
+                  <JTabbedPaneConstraints tabName="EXIF&#x4fe1;&#x606f;">
                     <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="resources/i18n/MessageMapping.properties" key="tab.exif" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
                     </Property>
@@ -362,7 +367,7 @@
             <Container class="javax.swing.JPanel" name="panTextWm">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Text watermark">
+                  <JTabbedPaneConstraints tabName="&#x6587;&#x5b57;&#x6c34;&#x5370;">
                     <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="resources/i18n/MessageMapping.properties" key="EasyPhoto.panTextWm.TabConstraints.tabTitle" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
                     </Property>
@@ -553,7 +558,7 @@
             <Container class="javax.swing.JPanel" name="panRound">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Corner round">
+                  <JTabbedPaneConstraints tabName="&#x5706;&#x89d2;">
                     <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="resources/i18n/MessageMapping.properties" key="tab.cornerround" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
                     </Property>
@@ -606,7 +611,7 @@
             <Container class="javax.swing.JPanel" name="panExport">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Export conf">
+                  <JTabbedPaneConstraints tabName="&#x8f93;&#x51fa;&#x8bbe;&#x7f6e;">
                     <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="resources/i18n/MessageMapping.properties" key="tab.export" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
                     </Property>
@@ -796,7 +801,7 @@
             <Container class="javax.swing.JPanel" name="panApp">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="App conf">
+                  <JTabbedPaneConstraints tabName="&#x5e94;&#x7528;&#x8bbe;&#x7f6e;">
                     <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                       <ResourceString bundle="resources/i18n/MessageMapping.properties" key="tab.app" replaceFormat="messageMapping.getString(&quot;{key}&quot;)"/>
                     </Property>
@@ -1147,7 +1152,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="panControl" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="lypanImage" pref="420" max="32767" attributes="0"/>
+                          <Component id="lypanImage" pref="418" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="panImageNavigate" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -1200,6 +1205,9 @@
                 <Property name="doubleBuffered" type="boolean" value="true"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbPreviewSmallMouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="lbPreviewSmall.setTransferHandler(new DndTransferHandler(this));"/>
               </AuxValues>

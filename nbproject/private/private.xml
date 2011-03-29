@@ -9,5 +9,9 @@
             <url>src/net/dxtop/easyphoto/image/BaseDecorativeImage.java</url>
             <line>70</line>
         </file>
+        <file>
+            <url>src/org/shaitu/easyphoto/ui/EasyPhoto.java</url>
+            <line>1385</line>
+        </file>
     </editor-bookmarks>
 </project-private>
