@@ -16,7 +16,7 @@ public class AppConstants {
 	/**
 	 * current app version
 	 */
-	public static final String CURRENT_INTERNAL_VERSION = "20110329.001";
+	public static final String CURRENT_INTERNAL_VERSION = "20110817.001";
 	/**
 	 * double style of exif
 	 */
