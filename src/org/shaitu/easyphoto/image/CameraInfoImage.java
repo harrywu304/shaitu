@@ -243,7 +243,7 @@ public class CameraInfoImage extends BaseDecorativeImage {
 			if(vo.getParams().isAppendFocal()){
 				String info = getExifInfo(exifDic,ExifDirectory.TAG_FOCAL_LENGTH);
 				if(!StringUtil.isNullOrBlank(info)){
-					appendInfo.append(StringUtil.getPrintString(info)+" mm");
+					appendInfo.append(StringUtil.getPrintString(info));
 				}
 			}
 			//aperture
