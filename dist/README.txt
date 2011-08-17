@@ -4,6 +4,7 @@
 官方主页：http://code.google.com/p/shaitu/
 电子邮件：harrywu304@gmail.com
 
+
 晒图是什么？
 -----------------
 晒图是个简单易用的照片处理工具，是你在网上发布照片的好帮手。
@@ -28,11 +29,18 @@
 * JDK 6 或更新版本 （晒图With jre版本已经内置，无需另外安装）;
 * 对内存或磁盘无特别要求；
 
+
 安装步骤
 -----------------
-* No jre发行版需要独立安装Sun JDK6或者更新版本，With jre发行版无需安装；
-* windows：解压双击EasyPhoto.bat即可运行，无需安装；
-* 由于未有测试平台，Linux or Mac用户需自行编写启动脚本；
+with_jre发行版 （已自带jre1.6）
+* Windows用户，直接解压并击EasyPhoto.bat即可运行，无需安装；
+* Linux or Mac用户，解压，使jre/bin目录下的命令在console可见，然后直接双击EasyPhoto.jar即可运行；
+
+no_jre发行版 （未自带jre）
+* 先安装Sun jre6或者更新版本；
+* Windows用户，解压EasyPhoto Zip文件，双击EasyPhoto.bat即可运行，无需安装；
+* Linux or Mac用户，解压并直接双击EasyPhoto.jar即可运行；
+
 
 许可证
 -----------------
