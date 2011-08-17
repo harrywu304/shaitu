@@ -15,7 +15,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
 
 import org.shaitu.easyphoto.config.Config;
 import org.shaitu.easyphoto.image.BaseDecorativeImage;
@@ -25,7 +24,6 @@ import org.shaitu.easyphoto.image.ResizeImage;
 import org.shaitu.easyphoto.image.RoundCornerImage;
 import org.shaitu.easyphoto.image.WatermarkImage;
 import org.shaitu.easyphoto.util.ImageUtil;
-import org.shaitu.easyphoto.util.StringUtil;
 import org.shaitu.easyphoto.vo.ImageActionParamsVO;
 import org.shaitu.easyphoto.vo.ImageActionVO;
 
@@ -93,10 +91,6 @@ public class ImageAction {
 	 */
 	public void handle(ImageActionParamsVO params) {
 		try{
-            String iroot = "";
-            if(params.getInputFiles()[0].getParentFile() != null){
-                iroot = params.getInputFiles()[0].getParentFile().getAbsolutePath();
-            }
 			List<File> todoImageList = new ArrayList();
             ImageUtil.findImagesRecusive(todoImageList, params.getInputFiles());
             imgCount = todoImageList.size();
@@ -112,12 +106,11 @@ public class ImageAction {
 				} else {
 					//doOverride is false, save images to specified output folder
 					String absPath = "";
-                    if(!StringUtil.isNullOrBlank(iroot)){
-                        absPath = ifile.getAbsolutePath().replaceFirst(Matcher.quoteReplacement(iroot),
-                               Matcher.quoteReplacement(vo.getParams().getOutputFolder().getAbsolutePath()));
-                    } else {
-                        absPath = vo.getParams().getOutputFolder().getAbsolutePath() + File.separator + ifile.getName();
-                    }
+			    	String outputFolderPath = vo.getParams().getOutputFolder().getAbsolutePath();
+			    	if(outputFolderPath.endsWith("\\.")){
+			    		outputFolderPath = outputFolderPath.substring(0, outputFolderPath.length()-2);
+			    	}
+                    absPath = outputFolderPath + File.separator + ifile.getName();
 					ofile = new File(absPath);
 				}	
 				//logger.info("Input image:"+ifile.getAbsolutePath());

@@ -8,7 +8,7 @@
 package org.shaitu.easyphoto.ui;
 
 import java.awt.Desktop;
-import java.net.URI;
+import java.io.File;
 import java.text.MessageFormat;
 import java.util.logging.Logger;
 
@@ -49,7 +49,7 @@ public class ImageSwingWorker extends SwingWorker {
     /**
      * output folder
      */
-    private URI outputFolder;
+    private File outputFolder;
 
 	/**
 	 * ImageProceedSwingWorker constructor
@@ -68,9 +68,9 @@ public class ImageSwingWorker extends SwingWorker {
             autoOpenOutput = main.getAppOptionsVO().isAutoOpenOutput();
 			// generate ImageProceedVO instance
 			ImageActionParamsVO vo = main.getImageActionParamsVO();
-	        outputFolder = vo.getOutputFolder().toURI();
+	        outputFolder = vo.getOutputFolder();
 	        if(vo.isOverride()){
-	        	outputFolder = vo.getInputFiles()[0].toURI();
+	        	outputFolder = vo.getInputFiles()[0];
 	        }
 			//print action vo info for debug
 			logger.info(vo.toString());
@@ -104,7 +104,7 @@ public class ImageSwingWorker extends SwingWorker {
         if(autoOpenOutput){
         	//auto open image output folder
             try{
-                Desktop.getDesktop().browse(outputFolder);
+                Desktop.getDesktop().browse(outputFolder.getParentFile().toURI());
             }catch(Exception e){
                 e.printStackTrace();
             }
