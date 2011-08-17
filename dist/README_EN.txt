@@ -1,4 +1,4 @@
-EasyPhoto v2.1.1 2011.08.17
+EasyPhoto v2.1.2 2011.08.17
 ==================
 Copyright © 2011 Harry Wu
 Homepage：http://code.google.com/p/shaitu/

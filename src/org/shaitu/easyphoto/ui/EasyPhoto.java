@@ -1511,7 +1511,11 @@ public class EasyPhoto extends javax.swing.JFrame {
      * set output folder
      */
     public void setOutputFolder(File outputFolder){
-    	this.outputFolder = outputFolder;
+    	String outputFolderPath = outputFolder.getAbsolutePath();
+    	if(!outputFolderPath.endsWith("\\.")){
+    		outputFolderPath += "\\.";
+    	}
+    	this.outputFolder = new File(outputFolderPath);
     }
     
     /**

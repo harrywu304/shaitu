@@ -46,6 +46,7 @@ public class ImageFileChooser extends JFileChooser {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Add content to the window.
 		frame.add(ifc);
+		ifc.setSelectedFile(new File("e:\\vmm\\."));
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
