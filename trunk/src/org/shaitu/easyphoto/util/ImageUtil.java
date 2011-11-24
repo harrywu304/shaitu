@@ -7,7 +7,10 @@
  */
 package org.shaitu.easyphoto.util;
 
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.IndexColorModel;
@@ -53,23 +56,50 @@ public class ImageUtil {
     /**
      * create new image from source image
      * @param srcImg source image
-     * @param targetWidth target image width
-     * @param targetHeight target image height
+     * @param rsize target image width, height will be crop keeping width/height ratio
      * @return new image with specify width and height
      */
-    public static BufferedImage createNewImage(BufferedImage srcImg,int targetWidth,int targetHeight){
-        BufferedImage targetImg = null;
-        int type = srcImg.getType();
-        if (type == BufferedImage.TYPE_CUSTOM) {
-            ColorModel cm = srcImg.getColorModel();
-            WritableRaster raster = cm.createCompatibleWritableRaster(targetWidth,
-                    targetHeight);
-            boolean alphaPremultiplied = cm.isAlphaPremultiplied();
-            targetImg = new BufferedImage(cm, raster, alphaPremultiplied, null);
-        } else {
-            targetImg = new BufferedImage(targetWidth, targetHeight, type);
-        }
-        return targetImg;
+    public static BufferedImage createNewImage(BufferedImage image,int rsize){
+		//get source image info
+		int sw = image.getWidth();
+		int sh = image.getHeight();
+		int type = image.getType();   
+		//target size bigger than or equal source size, return true and do nothing
+		if(rsize >= Math.max(sw, sh)){
+			return image;
+		}
+		//do resize
+		int tw = 0;
+		int th = 0;
+		double ratio = 0d;
+		if(sw > sh){
+			//width > height
+			tw = rsize;
+			ratio = (double)tw/sw;
+			th = (int)(ratio*sh);
+		} else {
+			//width <= height
+			th = rsize;
+			ratio = (double)th/sh;
+			tw = (int)(ratio*sw);
+		}
+         
+        BufferedImage target = null; 
+        if (type == BufferedImage.TYPE_CUSTOM) {   
+            ColorModel cm = image.getColorModel();    
+            WritableRaster raster = cm.createCompatibleWritableRaster(tw,    
+                    th);    
+            boolean alphaPremultiplied = cm.isAlphaPremultiplied();    
+            target = new BufferedImage(cm, raster, alphaPremultiplied, null);    
+        } else {  
+            target = new BufferedImage(tw, th, type);  
+        }    
+        Graphics2D g = target.createGraphics(); 
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,    
+                RenderingHints.VALUE_INTERPOLATION_BICUBIC);    
+        g.drawRenderedImage(image, AffineTransform.getScaleInstance(ratio, ratio));    
+        g.dispose(); 
+        return target;
     }
     
     /**
