@@ -1,0 +1,7 @@
+**自定义水印**
+
+# 示例1 #
+http://shaitu.googlecode.com/svn/wiki/img/pre_wm_1.JPG
+
+# 示例2 #
+http://shaitu.googlecode.com/svn/wiki/img/pre_wm_2.JPG

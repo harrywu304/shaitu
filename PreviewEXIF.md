@@ -1,0 +1,13 @@
+**照片EXIF外框**
+
+# 示例1 #
+
+http://shaitu.googlecode.com/svn/wiki/img/pre_exif_3.JPG
+
+# 示例2 #
+
+http://shaitu.googlecode.com/svn/wiki/img/pre_exif_2.JPG
+
+# 示例3 #
+
+http://shaitu.googlecode.com/svn/wiki/img/pre_exif_1.JPG

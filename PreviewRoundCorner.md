@@ -1,0 +1,9 @@
+**照片圆角效果**
+
+# 示例1 #
+
+![http://shaitu.googlecode.com/svn/wiki/img/pre_round_corner_1.jpg](http://shaitu.googlecode.com/svn/wiki/img/pre_round_corner_1.jpg)
+
+# 示例2 #
+
+![http://shaitu.googlecode.com/svn/wiki/img/pre_round_corner_2.jpg](http://shaitu.googlecode.com/svn/wiki/img/pre_round_corner_2.jpg)
